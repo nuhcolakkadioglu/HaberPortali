@@ -28,6 +28,13 @@ namespace HaberPortali.Data.Model
             set { _isDeleted = value; }
         }
 
+        private bool _isActive = false;
+        public bool IsActive
+        {
+            get { return _isActive; }
+            set { _isActive = value; }
+        }
+
         public DateTime? DeleteDate { get; set; }
 
 
