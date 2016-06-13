@@ -5,6 +5,8 @@ using System.Web;
 using Autofac;
 using Autofac.Integration.Mvc;
 using System.Web.Mvc;
+using HaberPortali.Core.Repository;
+using HaberPortali.Core.Infrastructure;
 
 namespace HaberPortali.Admin.Class
 {
@@ -18,10 +20,12 @@ namespace HaberPortali.Admin.Class
         private static void BuildAutofac()
         {
             var builder = new ContainerBuilder();
+            builder.RegisterType<HaberRepository>().As<IHaberRepository>();
+            builder.RegisterType<KullaniciRepository>().As<IKullaniciRepository>();
+            builder.RegisterType<ResimRepository>().As<IResimRepository>();
+            builder.RegisterType<RolRepository>().As<IRolRepository>();
+
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
-
-
-
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
         }

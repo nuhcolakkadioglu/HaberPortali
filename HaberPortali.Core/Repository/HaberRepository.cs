@@ -17,12 +17,16 @@ namespace HaberPortali.Core.Repository
 
         public int Count()
         {
-            throw new NotImplementedException();
+            return db.Haber.Count();
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            var Haber = GetById(id);
+            if(Haber!=null)
+            {
+                db.Haber.Remove(Haber);
+            }
         }
 
         public Haber Get(Expression<Func<Haber, bool>> expression)
