@@ -23,7 +23,8 @@ namespace HaberPortali.Admin.Controllers
 
         public ActionResult Index()
         {
-            return View();
+          
+            return View(_kategoriRepository.GetAll().ToList());
         }
 
         [HttpGet]
@@ -56,9 +57,17 @@ namespace HaberPortali.Admin.Controllers
             ViewBag.Kategori = KategoriList;
         }
 
-        public ActionResult Listele()
+      public ActionResult Sil(int id)
         {
-            return View();
+            Kategori kategori = _kategoriRepository.GetById(id);
+            if (kategori == null)
+                throw new Exception("kategori bulunamadı");
+
+            _kategoriRepository.Delete(id);
+            _kategoriRepository.Save();
+
+            return RedirectToAction("Index");
+
         }
 
     }
