@@ -24,7 +24,7 @@ namespace HaberPortali.Admin.Class
             builder.RegisterType<KullaniciRepository>().As<IKullaniciRepository>();
             builder.RegisterType<ResimRepository>().As<IResimRepository>();
             builder.RegisterType<RolRepository>().As<IRolRepository>();
-
+            builder.RegisterType<KategoriRepository>().As<IKategoriRepository>();
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));

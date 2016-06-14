@@ -12,7 +12,7 @@ namespace HaberPortali.Data.Model
     {
         public string KategoriAdi { get; set; }
 
-        public int ParentID { get; set; }
+        public int? ParentID { get; set; }
 
         public string Url { get; set; }
 
