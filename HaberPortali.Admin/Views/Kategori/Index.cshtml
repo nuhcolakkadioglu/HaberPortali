@@ -1,4 +1,6 @@
-﻿@model IEnumerable<HaberPortali.Data.Model.Kategori>
+﻿@model IPagedList<HaberPortali.Data.Model.Kategori>
+@using PagedList
+@using PagedList.Mvc
 
 @{
     ViewBag.Title = "Index";
@@ -13,25 +15,25 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.KategoriAdi)
+            KategoriAdi
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ParentID)
+            ParentID
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Url)
+            Url
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.AddDate)
+            AddDate
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.IsDeleted)
+            IsDeleted
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.IsActive)
+            IsActive
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DeleteDate)
+            DeleteDate
         </th>
         <th></th>
     </tr>
@@ -71,3 +73,7 @@
 }
 
 </table>
+
+<div class="pagedList">
+    @Html.PagedListPager(Model, sayfa => Url.Action("Index", new { sayfa }), PagedListRenderOptions.PageNumbersOnly)
+</div>

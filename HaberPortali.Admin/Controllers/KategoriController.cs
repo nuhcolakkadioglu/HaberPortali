@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 
 namespace HaberPortali.Admin.Controllers
 {
@@ -20,11 +21,10 @@ namespace HaberPortali.Admin.Controllers
             _kategoriRepository = kategoriRepository;
         }
 
-
-        public ActionResult Index()
+        public ActionResult Index(int sayfa=1)
         {
           
-            return View(_kategoriRepository.GetAll().ToList());
+            return View(_kategoriRepository.GetAll().OrderByDescending(m=>m.ID).ToPagedList(sayfa,3));
         }
 
         [HttpGet]
