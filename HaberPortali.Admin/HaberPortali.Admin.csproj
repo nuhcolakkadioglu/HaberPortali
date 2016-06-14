@@ -137,6 +137,7 @@
     <Compile Include="Class\BootStrapper.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KategoriController.cs" />
     <Compile Include="CustomFilter\LoginFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -196,6 +197,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Kategori\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HaberPortali.Core\HaberPortali.Core.csproj">

@@ -53,6 +53,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Base.cs" />
     <Compile Include="Model\Haber.cs" />
+    <Compile Include="Model\Kategori.cs" />
     <Compile Include="Model\Kullanici.cs" />
     <Compile Include="Model\Resim.cs" />
     <Compile Include="Model\Rol.cs" />

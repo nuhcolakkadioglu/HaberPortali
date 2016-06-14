@@ -23,7 +23,10 @@ namespace HaberPortali.Data.Model
 
         public virtual Kullanici Kullanici { get; set; }
 
+        public virtual Kategori Kategori { get; set; }
+
         public virtual ICollection<Resim> Resims { get; set; }
+
 
     }
 }
