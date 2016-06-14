@@ -13,10 +13,10 @@
         type: "POST",
         success:function(response)
         {
-            if (response.success)
-                alert("ok");
+            if (response.Success)
+                alert(response.Message);
             else
-                alert("no");
+                alert(response.Message);
         }
 
     });

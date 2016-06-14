@@ -1,4 +1,5 @@
-﻿using HaberPortali.Core.Infrastructure;
+﻿using HaberPortali.Admin.Class;
+using HaberPortali.Core.Infrastructure;
 using HaberPortali.Data.Model;
 using System;
 using System.Collections.Generic;
@@ -34,7 +35,18 @@ namespace HaberPortali.Admin.Controllers
         [HttpPost]
         public JsonResult Ekle(Kategori model)
         {
-            return Json(1,JsonRequestBehavior.AllowGet);
+            try
+            {
+                _kategoriRepository.Insert(model);
+                _kategoriRepository.Save();
+                return Json(new ResultJson {Success=true, Message="Kategori ekleme işleminiz ok"});
+            }
+            catch (Exception)
+            {
+                return Json(new ResultJson { Success = false, Message = "kategori eklenemedi" });
+               
+            }
+
         }
     }
 }
