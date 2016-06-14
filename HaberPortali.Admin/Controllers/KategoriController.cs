@@ -29,6 +29,7 @@ namespace HaberPortali.Admin.Controllers
         [HttpGet]
         public ActionResult Ekle()
         {
+            SetKategoriListele();
             return View();
         }
 
@@ -48,5 +49,17 @@ namespace HaberPortali.Admin.Controllers
             }
 
         }
+
+        public void SetKategoriListele()
+        {
+            var KategoriList = _kategoriRepository.GetMany(m=>m.ParentID==0).ToList();
+            ViewBag.Kategori = KategoriList;
+        }
+
+        public ActionResult Listele()
+        {
+            return View();
+        }
+
     }
 }

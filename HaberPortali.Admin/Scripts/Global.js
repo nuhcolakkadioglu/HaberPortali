@@ -5,6 +5,7 @@
     Kategori.KategoriAdi = $('#KategoriAdi').val();
     Kategori.Url = $('#Url').val();
     Kategori.IsActive = $('#IsActive').is(":checked");
+    Kategori.ParentID = $('#ParentID').val();
 
     $.ajax({
 
