@@ -23,3 +23,27 @@
     });
 
 }
+
+function KateGoriSil(id)
+{
+    
+    $.ajax({
+
+        url: "/Kategori/Sil/" + id,
+        type: "POST",
+        dataType: "json",
+        success: function (response)
+        {
+            if (response.Success)
+            {
+
+                alert(response.Message);
+                location.reload()
+            }
+            else
+                alert(response.Message);
+        }
+
+    });
+
+}

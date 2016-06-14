@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<script src="~/Scripts/Global.js"></script>
 <h2>Index</h2>
 
 <p>
@@ -62,7 +62,10 @@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
             @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Kategori","Sil", new { id=item.ID })
+            @*@Html.ActionLink("Kategori","Sil", new { id=item.ID },new { @onclikc= "KateGoriSil()" })*@
+            
+ <button class="btn btn-primary btn-sm" id="KategoriDelete" onclick="KateGoriSil(@item.ID);" data-id="@item.ID">sil</button>
+
         </td>
     </tr>
 }

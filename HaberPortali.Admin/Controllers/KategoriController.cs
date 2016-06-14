@@ -57,16 +57,16 @@ namespace HaberPortali.Admin.Controllers
             ViewBag.Kategori = KategoriList;
         }
 
-      public ActionResult Sil(int id)
+      public JsonResult Sil(int id)
         {
             Kategori kategori = _kategoriRepository.GetById(id);
             if (kategori == null)
-                throw new Exception("kategori bulunamadı");
+                return Json(new ResultJson { Success = false, Message = "kategori bulunamadı" });
 
             _kategoriRepository.Delete(id);
             _kategoriRepository.Save();
 
-            return RedirectToAction("Index");
+            return Json(new ResultJson { Success=true,Message="kategori silindi"});
 
         }
 
